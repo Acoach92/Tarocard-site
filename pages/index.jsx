@@ -1,7 +1,10 @@
+import dynamic from "next/dynamic";
+
+// Import dinamico per evitare SSR su componenti che usano window/document
+const TarocardSite = dynamic(() => import("../components/TarocardSite"), {
+  ssr: false
+});
+
 export default function Home() {
-  return (
-    <h1 style={{ fontFamily: 'sans-serif', padding: 20 }}>
-      Tarocard online ✅
-    </h1>
-  );
+  return <TarocardSite />;
 }
